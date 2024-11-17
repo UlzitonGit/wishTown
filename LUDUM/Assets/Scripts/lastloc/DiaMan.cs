@@ -6,6 +6,7 @@ using System.Collections;
 
 public class DiaMan : MonoBehaviour
 {
+    
     public Image panelDark;
     public GameObject womanMan;
     public TMP_Text interactionText;
@@ -17,7 +18,7 @@ public class DiaMan : MonoBehaviour
     public float[] messageDurations;
     public string nextSceneName;
     public float interactionDistance = 5f;
-
+    
     private AudioSource audioSource;
     private int currentMessageIndex = 0;
     private bool isLookingAtWomanMan = false;

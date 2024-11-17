@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     public string nextSceneName;
     public GameObject DialogueCor;
     public GameObject ExitDialogue;
-
+    [SerializeField] Transform lookTransform;
     private bool hasKey = false;
     private bool canPickUpKey = false;
     private bool triggerT1Activated = false;
@@ -77,6 +77,7 @@ public class DialogueManager : MonoBehaviour
             audioSource.clip = dialogueClips[clipIndex];
             audioSource.Play();
         }
+       
 
         if (message.Contains("Clown"))
         {
@@ -99,7 +100,8 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
